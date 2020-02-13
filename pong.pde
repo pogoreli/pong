@@ -2,16 +2,16 @@ String mode="hello";
 
 void setup()
 {
-  size(640,360);
+  size(700,360);
   background(0,0,0);
-if(random(1,2)==1)
-{
-  rand=random(1,2);
-}else
-{
-  rand=random(-2,-1);
-}
-allow=false;
+//if(random(1,2)==1)
+//{
+//  rand=random(1,2);
+//}else
+//{
+//  rand=random(-2,-1);
+//}
+//allow=false;
 }
 
 void draw()

@@ -1,3 +1,7 @@
+//inicial game values
+
+boolean gameInProgress=false;
+
 int pedalSize;
 boolean onAir=false;
 
@@ -8,7 +12,7 @@ float directionX=rand;
 float ballX=random(0,width);
 float ballY=20;
 int ballSize=20;
-float directionY=2;
+float directionY=1;
 int pedalHeight=20;
 int score=0;
 boolean CrazyRainbowBall=false;
@@ -18,11 +22,16 @@ boolean allow=true;
 
 void game(int pedalSize)
 {
-  //float a = directionY/abs(directionY);
-  //directionY=map((abs(directionY)+map(score,0,200,0,1))*a,0,100,0,1.5);
-// if(allow)
-// {
-  onAir=true;
+  
+  //control of the ball speed
+  float scoreSpeed=score/20;
+  if(scoreSpeed>=2)
+  {
+    scoreSpeed=2;
+  }
+  float a = directionY/abs(directionY);
+  directionY=(abs(directionY)+scoreSpeed+(pedalSize/400))*a;
+
   noStroke();
   
   //cleaning the background
@@ -74,11 +83,11 @@ void game(int pedalSize)
   {
     directionY=directionY*(-1);
   }
-  println(score);
+//  println(score);
   score(score);
   
   //crazy rainbow
-  if(mousePressed)
+  if(mousePressed||gameInProgress)
   {
     CrazyRainbowBall=true;
   }
@@ -89,6 +98,14 @@ void game(int pedalSize)
     {
       CrazyRainbowBall=false;
       timer=0;
+    }
+  }
+  
+  if(ballY>=height-90)
+  {
+    if(ballX<=0 || ballX>=width)
+    {
+      mode="gameOver";
     }
   }
   

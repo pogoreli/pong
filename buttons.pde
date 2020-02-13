@@ -5,14 +5,20 @@ int button()
   int buttonX2=(width/3)*2-150;
   int buttonX3=width-150;
   
+  int exsitButtonX=0;
+  int exitButtonY=height-20;
+  int exitButtonWidth=50;
+  int exitButtonHeight=20;
+  String exitButtonText="exit";
+  
   //buttons Y coordinates
   int buttonY=height-60;
   
   
   //pedal sizes
   int text1=100;
-  int text2=150;
-  int text3=200;
+  int text2=200;
+  int text3=300;
   
   //return variable
   int choice=0;
@@ -28,6 +34,8 @@ int button()
   rect(buttonX2,buttonY,buttonWidth,buttonHeight);
   rect(buttonX3,buttonY,buttonWidth,buttonHeight);
   
+  rect(exsitButtonX,exitButtonY,exitButtonWidth,exitButtonHeight);
+  
   //creation of buttons' text
   textAlign(CENTER,CENTER);
   fill(0,0,0);
@@ -37,6 +45,10 @@ int button()
   text("px",(buttonX2+buttonWidth/2)+10,(buttonY+buttonHeight/2));
   text(text3,(buttonX3+buttonWidth/2)-10,(buttonY+buttonHeight/2));
   text("px",(buttonX3+buttonWidth/2)+10,(buttonY+buttonHeight/2));
+  
+  text(exitButtonText,(exsitButtonX+ exitButtonWidth/2),(exitButtonY+exitButtonHeight/2));
+  
+  
   
   //check which button is pressed
   if(mousePressed)
@@ -58,7 +70,11 @@ int button()
       choice=text3;
       fill(0,0,0);
       rect(buttonX3,buttonY,buttonWidth,buttonHeight);
+    } else if(mouseX>=exsitButtonX && mouseX<=exsitButtonX+exitButtonWidth && mouseY>=exitButtonY && mouseY<=exitButtonY+exitButtonHeight)
+    {
+      exit();
     }
+    
   } 
   //returning the button pressed
   return(choice); 
