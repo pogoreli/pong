@@ -1,3 +1,4 @@
+int pedalSize;
 boolean onAir=false;
 
 float acceleration=0.01;
@@ -19,8 +20,8 @@ void game(int pedalSize)
 {
   //float a = directionY/abs(directionY);
   //directionY=map((abs(directionY)+map(score,0,200,0,1))*a,0,100,0,1.5);
- if(allow)
- {
+// if(allow)
+// {
   onAir=true;
   noStroke();
   
@@ -93,9 +94,8 @@ void game(int pedalSize)
   
   if(ballY>=pedalY+5)
   {
- //   gameOver();
-  //  allow=false;
+  mode="gameOver";
   }
  }
   
-}
+//}

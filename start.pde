@@ -1,7 +1,5 @@
 void hello()//the inicial menu
 {
-  if(page=="hello")
-  {
   //creating a space background
   for(int i=0; i<=width;i++)
   {
@@ -26,9 +24,9 @@ void hello()//the inicial menu
   
   if(userChoice>0)
   {
-    
+    pedalSize=userChoice;
     allow=true;
     CrazyRainbowBall=false;
+    mode="game";
   } 
-}
 }
